@@ -1,0 +1,102 @@
+// findSum([2, 4, 6])
+
+var numbers = [2,4,6]
+
+var sum = numbers.reduce(function(sum, number){
+  return sum + number;
+}, 0);
+
+// console.log(sum)
+
+// findFrequency(['a', 'b', 'c', 'a', 'b', 'c', 'a', 'a', 'd']);
+
+var array = ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'a', 'd'];
+var count ={};
+for (var i = 0; i < array.length; i++) {
+  var num = array[i];
+  
+  count[num] = count[num] ? count[num] + 1:1;
+}
+
+// console.log(count)
+
+// isPalindrome('canal'); // false
+// isPalindrome('Ana'); // true
+
+var string = 'canal'
+var stringBackwards = string.split("").reverse().join("");
+// console.log(stringBackwards) leaving this here because I thought my above code was wrong and I need to learn why it's right.
+var palindromeCheck = function(string, stringBackwards){
+  if (string === stringBackwards){
+    console.log('Is a Palindrome')
+    return palindromeCheck
+  }else{
+    console.log('Not a Palindrome')
+  }
+}
+palindromeCheck()
+
+// I'm unsure if the above code is acceptable. I'm thinking since a value is returned PalindromeCheck is true. I don't know the return value would be. Does any return value work due to what constitutes true and falsey?
+
+
+
+// largestPair([5, 1, 2, 3, 1, 4]); // 6
+// largestPair([9, 5, 10, 2, 24, -1, -48]) // 50
+
+
+var inputArray = [2,1,-1,480,300,5,6,2]
+function adjacentElementsProduct(inputArray) {
+  var arrayInput = inputArray;
+   var x=0;
+   var y=0;
+   var p=-500;
+   for(var i=0;i<arrayInput.length;i++){
+     x=arrayInput[i];
+     y=arrayInput[i+1];
+     if(x*y>p){
+      p=x*y;
+     };
+   };
+  return p;
+ };
+
+//  console.log(adjacentElementsProduct())
+
+//  I need to return to this 
+
+
+// removeParenth('ido(not)liketocode'); // 'idoliketocode'
+// var string3 = 'ido(not)liketocode'
+// const newString3 = string3.replace(/[()]/g, '')
+// console.log(newString3)
+// ^ the above is based on a code i found on github but i do not know how to modify it to get the not removed so how i would do it is below
+
+
+var array3 =['i','d','o','(','n','o','t',')','l','i','k','e','t','o','c','o','d','e',]
+array3.splice(3,5)
+var string3 = array3.toString()
+var string4 = string3.replace(/[,]/g,'')
+console.log(string4)
+
+
+
+//this is my attempt at working a solution offline, work has been wild and will return to these. I just need to submit something before July 1st and hopefully its 14 points. This is not my final revision but I have had sub 2 hours a day to practice these past two weeks between work and moving to a new house. 
+var score = function(word) {
+  let result = 0;
+  var mapping = {
+      1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
+      2: ['D', 'G'],
+      3: ['B', 'C', 'M', 'P'],
+      4: ['F', 'H', 'V', 'W', 'Y'],
+      5: ['K'],
+      8: ['J', 'X'],
+      10: ['Q', 'Z'],
+  };
+  for (const letter of word) {
+      for (const key in mapping) {
+          if (mapping[key].includes(letter.toUpperCase()))
+              result += parseInt(key);
+      }
+  }
+  return result;
+};
